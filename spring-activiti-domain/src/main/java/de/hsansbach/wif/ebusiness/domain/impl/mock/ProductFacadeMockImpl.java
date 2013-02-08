@@ -16,8 +16,8 @@ public class ProductFacadeMockImpl implements ProductFacade {
     public Product loadProduct(Long id) {
     	Product product = new Product();
         product.setId(1L);
-        product.setName("Java Magazin");
-        product.setPrice(9.8);
+        product.setName("TShirt mit HS-Ansbach Logo");
+        product.setPrice(19.8);
         
         Calendar validFrom = Calendar.getInstance();
         validFrom.set(Calendar.YEAR, 2013);
