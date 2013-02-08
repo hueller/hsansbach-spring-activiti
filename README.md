@@ -3,6 +3,8 @@ spring-activiti
 
 Arbeitsprojekt für die HS Ansbach Veranstaltung
 
+test
+
 1) Anforderungen Entwicklungsumgebung
    - Java SE 6 oder 7 (http://www.oracle.com/technetwork/java/index.html)
    - Maven 3 (http://maven.apache.org/)
