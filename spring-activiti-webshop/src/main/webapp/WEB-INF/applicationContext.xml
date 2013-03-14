@@ -15,6 +15,6 @@
     
     <import resource="classpath*:process-context.xml" />
     
-    <context:component-scan base-package="de.hsansbach.wif.ebusiness.controller" />
+    <context:component-scan base-package="de.hsansbach.wif.ebusiness.bean" />
 
 </beans>
