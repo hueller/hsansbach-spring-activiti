@@ -1,4 +1,4 @@
-package de.hsansbach.wif.ebusiness.engine.activiti;
+package de.hsansbach.wif.ebusiness.engine;
 
 import org.activiti.spring.ProcessEngineFactoryBean;
 

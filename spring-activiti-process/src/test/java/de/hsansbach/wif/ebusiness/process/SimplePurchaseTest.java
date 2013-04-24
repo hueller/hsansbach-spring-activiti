@@ -20,7 +20,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import de.hsansbach.wif.ebusiness.domain.CustomerFacade;
 import de.hsansbach.wif.ebusiness.domain.model.Customer;
-import de.hsansbach.wif.ebusiness.process.service.PurchaseService;
+import de.hsansbach.wif.ebusiness.process.service.ProcessRuntimeService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:process-context.xml")
@@ -40,7 +40,7 @@ public class SimplePurchaseTest {
     private CustomerFacade customerFacade;
     
     @Autowired
-    private PurchaseService purchaseService;
+    private ProcessRuntimeService purchaseService;
 
     @Before
     public void printSomeDebugInformation() {
@@ -52,7 +52,7 @@ public class SimplePurchaseTest {
 
     @Test
     public void testWithActivitiPersistence() {
-        purchaseService.execute(1L, 1L);
+        purchaseService.startPurchaseProcess(1L, 1L);
         
         Assert.assertEquals(0, runtimeService.createProcessInstanceQuery().count());
     }

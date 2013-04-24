@@ -22,7 +22,7 @@
         <property name="deploymentResources" value="classpath*:/process/*.bpmn" />
     </bean>
 
-    <bean id="processEngine" class="de.hsansbach.wif.ebusiness.engine.activiti.SpelProcessEngineFactoryBean">
+    <bean id="processEngine" class="de.hsansbach.wif.ebusiness.engine.SpelProcessEngineFactoryBean">
         <property name="processEngineConfiguration" ref="processEngineConfiguration" />
     </bean>
 

@@ -1,4 +1,4 @@
-package de.hsansbach.wif.ebusiness.engine.activiti;
+package de.hsansbach.wif.ebusiness.engine;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
