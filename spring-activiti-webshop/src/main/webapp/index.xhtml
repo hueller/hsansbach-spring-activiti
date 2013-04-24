@@ -6,17 +6,23 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
 
-<h:head>
-	<title>spring-activiti-webshop</title>
-</h:head>
 <h:body>
-	<h2>Welcome to HS Ansbach JSF2 Webshop</h2>
-	Powered by Spring Framework and Activti
-	<br />
-	<br />
- 	<h:form>
- 		<h:commandButton value="Purchase test" action="#{purchaseBean.submit()}" />
-	</h:form>
+	<ui:composition template="/WEB-INF/template/layout.xhtml">
+		<ui:define name="content">
+		
+			<h:form>
+				<h3>Purchase</h3>
+				<h:commandButton value="Test Purchase process" action="#{processBean.startPurchaseProcess()}" />
+				<br />
+				<br />
+				<h3>User Confirmation</h3>
+				<h:commandButton value="Test User Confirmation processes" action="#{processBean.startUserConfirmationProcess()}" />
+				<br />
+				<h:commandButton value="Open User Confirmation tasks" action="#{navigationBean.get('USER_TASKS')}" />
+			</h:form>
+		
+		</ui:define>
+	</ui:composition>
 </h:body>
 
 </html>
