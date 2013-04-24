@@ -2,15 +2,6 @@ package de.hsansbach.wif.ebusiness.process;
 
 public enum ProcessKey {
 	
-	PURCHASE("purchaseProcess");
+	PURCHASE;
 
-	String key;
-	
-	ProcessKey(String key) {
-		this.key = key;
-	}
-	
-	public String getKey() {
-		return key;
-	}
 }

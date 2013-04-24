@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/test">
-  <process id="purchaseProcess" name="Purchase Process" isExecutable="true">
+  <process id="PURCHASE" name="Purchase Process" isExecutable="true">
     <startEvent id="start" name="Start"></startEvent>
     <endEvent id="end" name="End"></endEvent>
     <endEvent id="errorEnd" name="Error End">
       <errorEventDefinition errorRef="generalerror"></errorEventDefinition>
     </endEvent>
     <exclusiveGateway id="checkPurchaseValid" name="Check Purchase Valid" default="validatePurchaseResultNotOk"></exclusiveGateway>
-    <serviceTask id="validatePurchase" name="Validate Purchase" activiti:expression="#{@purchaseUtils.validatePurchase(#customer.id, #product_id)}" activiti:resultVariableName="validatePurchaseResult"></serviceTask>
-    <serviceTask id="updateCustomer" name="Update Customer" activiti:expression="#{@customerFacade.updateCustomer(#customer)}" activiti:resultVariableName="validatePurchaseResult"></serviceTask>
-    <serviceTask id="createContract" name="Create Contract" activiti:expression="#{@contractFacade.createContract(#customer.id, #product_id)}" activiti:resultVariableName="contract_id"></serviceTask>
-    <serviceTask id="createInvoice" name="Create Invoice" activiti:expression="#{@billingFacade.createInvoice(#contract_id)}"></serviceTask>
+    <serviceTask id="validatePurchase" name="Validate Purchase" activiti:expression="#{@purchaseUtils.validatePurchase(#CUSTOMER.id, #PRODUCT_ID)}" activiti:resultVariableName="VALIDATE_PURCHASE_RESULT"></serviceTask>
+    <serviceTask id="updateCustomer" name="Update Customer" activiti:expression="#{@customerFacade.updateCustomer(#CUSTOMER)}" activiti:resultVariableName="validatePurchaseResult"></serviceTask>
+    <serviceTask id="createContract" name="Create Contract" activiti:expression="#{@contractFacade.createContract(#CUSTOMER.id, #PRODUCT_ID)}" activiti:resultVariableName="CONTRACT_ID"></serviceTask>
+    <serviceTask id="createInvoice" name="Create Invoice" activiti:expression="#{@billingFacade.createInvoice(#CONTRACT_ID)}"></serviceTask>
     <sequenceFlow id="validatePurchaseResultOk" sourceRef="checkPurchaseValid" targetRef="updateCustomer">
-      <conditionExpression xsi:type="tFormalExpression"><![CDATA[#{#validatePurchaseResult}]]></conditionExpression>
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[#{#VALIDATE_PURCHASE_RESULT}]]></conditionExpression>
     </sequenceFlow>
     <sequenceFlow id="validatePurchaseResultNotOk" sourceRef="checkPurchaseValid" targetRef="errorEnd"></sequenceFlow>
     <sequenceFlow id="startOk" sourceRef="start" targetRef="validatePurchase"></sequenceFlow>
@@ -21,8 +21,8 @@
     <sequenceFlow id="createContractOk" sourceRef="createContract" targetRef="createInvoice"></sequenceFlow>
     <sequenceFlow id="createInvoiceOk" sourceRef="createInvoice" targetRef="end"></sequenceFlow>
   </process>
-  <bpmndi:BPMNDiagram id="BPMNDiagram_purchaseProcess">
-    <bpmndi:BPMNPlane bpmnElement="purchaseProcess" id="BPMNPlane_purchaseProcess">
+  <bpmndi:BPMNDiagram id="BPMNDiagram_PURCHASE">
+    <bpmndi:BPMNPlane bpmnElement="PURCHASE" id="BPMNPlane_PURCHASE">
       <bpmndi:BPMNShape bpmnElement="start" id="BPMNShape_start">
         <omgdc:Bounds height="35.0" width="35.0" x="30.0" y="150.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>

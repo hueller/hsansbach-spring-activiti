@@ -29,9 +29,9 @@ public class PurchaseServiceImpl implements PurchaseService {
         Customer customer = customerFacade.loadCustomer(1L);
         
         Map<String, Object> processVariables = new HashMap<String, Object>();
-        processVariables.put(VariableKey.PRODUCT_ID.getKey(), productId);
-        processVariables.put(VariableKey.CUSTOMER.getKey(), customer);
+        processVariables.put(VariableKey.PRODUCT_ID.name(), productId);
+        processVariables.put(VariableKey.CUSTOMER.name(), customer);
        
-        return engine.startProcess(ProcessKey.PURCHASE.getKey(), processVariables);
+        return engine.startProcess(ProcessKey.PURCHASE.name(), processVariables);
     }
 }

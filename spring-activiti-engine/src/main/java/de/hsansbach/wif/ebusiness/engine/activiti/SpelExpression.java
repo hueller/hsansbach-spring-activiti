@@ -55,7 +55,6 @@ public class SpelExpression implements Expression {
         StandardEvaluationContext evaluationContext = new StandardEvaluationContext(variableScope);
         evaluationContext.setBeanResolver(expressionManager.beanResolver);
         evaluationContext.setVariables(variableScope.getVariables());
-        
         return evaluationContext;
     }
 
