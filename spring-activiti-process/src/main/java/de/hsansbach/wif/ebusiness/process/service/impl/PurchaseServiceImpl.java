@@ -10,10 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 import de.hsansbach.wif.ebusiness.domain.CustomerFacade;
 import de.hsansbach.wif.ebusiness.domain.model.Customer;
 import de.hsansbach.wif.ebusiness.engine.ActivitiSpringEngine;
-import de.hsansbach.wif.ebusiness.persistence.Order;
-import de.hsansbach.wif.ebusiness.persistence.OrderAttribute;
-import de.hsansbach.wif.ebusiness.persistence.OrderDao;
-import de.hsansbach.wif.ebusiness.persistence.OrderType;
+import de.hsansbach.wif.ebusiness.process.ProcessKey;
+import de.hsansbach.wif.ebusiness.process.VariableKey;
 import de.hsansbach.wif.ebusiness.process.service.PurchaseService;
 
 @Service(value = "purchaseService")
@@ -23,25 +21,17 @@ public class PurchaseServiceImpl implements PurchaseService {
     private ActivitiSpringEngine engine;
 
     @Autowired
-    private OrderDao orderDao;
-
-    @Autowired
     private CustomerFacade customerFacade;
 
     @Transactional
     @Override
-    public Long execute(Long customerId, Long productId) {
+    public String execute(Long customerId, Long productId) {
         Customer customer = customerFacade.loadCustomer(1L);
         
-        Map<OrderAttribute, Object> requestAttributes = new HashMap<OrderAttribute, Object>();
-        requestAttributes.put(OrderAttribute.PRODUCT_ID, 1L);
-        requestAttributes.put(OrderAttribute.CUSTOMER, customer);
-        
-        Order order = new Order(OrderType.PURCHASE, requestAttributes);
-        order = orderDao.save(order);
+        Map<String, Object> processVariables = new HashMap<String, Object>();
+        processVariables.put(VariableKey.PRODUCT_ID.getKey(), productId);
+        processVariables.put(VariableKey.CUSTOMER.getKey(), customer);
        
-        engine.startProcess(order);
-        
-        return order.getId();
+        return engine.startProcess(ProcessKey.PURCHASE.getKey(), processVariables);
     }
 }

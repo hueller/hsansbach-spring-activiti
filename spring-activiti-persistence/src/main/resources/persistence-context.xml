@@ -13,10 +13,6 @@
                         http://www.springframework.org/schema/context 
                         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <tx:annotation-driven />
-
-    <jpa:repositories base-package="de.hsansbach.wif.ebusiness.persistence" />
-
     <bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
         <property name="driverClass" value="org.h2.Driver" />
         <property name="url" value="jdbc:h2:mem:activitispring;DB_CLOSE_DELAY=1000" />

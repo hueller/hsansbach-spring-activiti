@@ -20,8 +20,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import de.hsansbach.wif.ebusiness.domain.CustomerFacade;
 import de.hsansbach.wif.ebusiness.domain.model.Customer;
-import de.hsansbach.wif.ebusiness.persistence.OrderAttribute;
-import de.hsansbach.wif.ebusiness.persistence.OrderType;
 import de.hsansbach.wif.ebusiness.process.service.PurchaseService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -54,21 +52,8 @@ public class SimplePurchaseTest {
 
     @Test
     public void testWithActivitiPersistence() {
-        Customer customer = customerFacade.loadCustomer(1L);
-
-        Map<String, Object> processVariables = new HashMap<String, Object>();
-        processVariables.put(OrderAttribute.CUSTOMER.name(), customer);
-        processVariables.put(OrderAttribute.PRODUCT_ID.name(), 1L);
-
-        runtimeService.startProcessInstanceByKey(OrderType.PURCHASE.getProcessName(), processVariables);
-        Assert.assertEquals(0, runtimeService.createProcessInstanceQuery().count());
-    }
-    
-    @Test
-    public void testWithCustomPersistence() {
-        Long orderId = purchaseService.execute(1L, 1L);
+        purchaseService.execute(1L, 1L);
         
-        Assert.assertTrue(orderId != null);
         Assert.assertEquals(0, runtimeService.createProcessInstanceQuery().count());
     }
 

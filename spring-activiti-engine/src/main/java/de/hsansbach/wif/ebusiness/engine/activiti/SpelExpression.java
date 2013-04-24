@@ -1,7 +1,5 @@
 package de.hsansbach.wif.ebusiness.engine.activiti;
 
-import java.util.Map;
-
 import org.activiti.engine.delegate.Expression;
 import org.activiti.engine.delegate.VariableScope;
 import org.springframework.expression.EvaluationContext;
@@ -10,12 +8,11 @@ import org.springframework.expression.ExpressionException;
 import org.springframework.expression.ParseException;
 import org.springframework.expression.spel.support.StandardEvaluationContext;
 
-import de.hsansbach.wif.ebusiness.persistence.Order;
-import de.hsansbach.wif.ebusiness.persistence.OrderAttribute;
-
 public class SpelExpression implements Expression {
 
-    private org.springframework.expression.Expression spelExpression;
+	private static final long serialVersionUID = 1L;
+
+	private org.springframework.expression.Expression spelExpression;
     
     private SpelExpressionManager expressionManager;
 
@@ -58,13 +55,7 @@ public class SpelExpression implements Expression {
         StandardEvaluationContext evaluationContext = new StandardEvaluationContext(variableScope);
         evaluationContext.setBeanResolver(expressionManager.beanResolver);
         evaluationContext.setVariables(variableScope.getVariables());
-        Order order = (Order) variableScope.getVariable("order");
-        if (order != null) {
-            Map<OrderAttribute, Object> attributes = order.getAttributes();
-            for (OrderAttribute attribute : attributes.keySet()) {
-                evaluationContext.setVariable(attribute.toString(), order.getAttribute(attribute));
-            }
-        }
+        
         return evaluationContext;
     }
 

@@ -1,9 +1,9 @@
 package de.hsansbach.wif.ebusiness.engine;
 
-import de.hsansbach.wif.ebusiness.persistence.Order;
+import java.util.Map;
 
 public interface ActivitiSpringEngine {
     
-    String startProcess(Order order);
+    String startProcess(String processKey, Map<String, Object> variables);
 
 }

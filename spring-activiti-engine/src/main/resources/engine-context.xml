@@ -40,17 +40,4 @@
     
     <bean id="formService" factory-bean="processEngine" factory-method="getFormService" />
     
-    <!-- Retry task scheduler -->
-    
-    <task:scheduler id="taskScheduler" />
-    
-    <task:scheduled-tasks scheduler="taskScheduler">
-        <task:scheduled ref="retryJobs" method="execute" fixed-delay="3000" />
-    </task:scheduled-tasks>
-    
-    <bean id="retryJobs" class="de.hsansbach.wif.ebusiness.engine.retry.RetryJob">
-        <property name="retryCount" value="20" />
-        <property name="active" value="true" />
-    </bean>
-    
 </beans>
