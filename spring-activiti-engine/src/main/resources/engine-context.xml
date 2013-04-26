@@ -20,6 +20,7 @@
         <property name="databaseSchemaUpdate" value="true" />
         <property name="jobExecutorActivate" value="false" />
         <property name="deploymentResources" value="classpath*:/process/*.bpmn" />
+        <property name="customPreBPMNParseListeners" ref="loggingBpmnParseListener" />
     </bean>
 
     <bean id="processEngine" class="de.hsansbach.wif.ebusiness.engine.SpelProcessEngineFactoryBean">
@@ -39,5 +40,7 @@
     <bean id="identityService" factory-bean="processEngine" factory-method="getIdentityService" />
     
     <bean id="formService" factory-bean="processEngine" factory-method="getFormService" />
+    
+    <bean id="loggingBpmnParseListener" class="de.hsansbach.wif.ebusiness.engine.logging.LoggingBpmnParseListener" />
     
 </beans>

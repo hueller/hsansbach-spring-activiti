@@ -10,8 +10,6 @@ import org.springframework.expression.spel.support.StandardEvaluationContext;
 
 public class SpelExpression implements Expression {
 
-	private static final long serialVersionUID = 1L;
-
 	private org.springframework.expression.Expression spelExpression;
     
     private SpelExpressionManager expressionManager;
