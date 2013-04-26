@@ -1,4 +1,4 @@
-package de.hsansbach.wif.ebusiness.engine.logging;
+package de.hsansbach.wif.ebusiness.engine.logging.listener;
 
 import org.activiti.engine.delegate.DelegateExecution;
 import org.activiti.engine.delegate.ExecutionListener;
@@ -6,9 +6,11 @@ import org.activiti.engine.impl.persistence.entity.ExecutionEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public abstract class AbstractLoggingExecutionListener implements ExecutionListener {
+public abstract class AbstractLoggingListener implements ExecutionListener {
 
-	protected final static Logger LOG = LoggerFactory.getLogger(ExecutionListener.class);
+	private static final long serialVersionUID = 1L;
+	
+	protected static final Logger LOG = LoggerFactory.getLogger(ExecutionListener.class);
 
 	@Override
 	public void notify(DelegateExecution execution) throws Exception {
@@ -22,12 +24,12 @@ public abstract class AbstractLoggingExecutionListener implements ExecutionListe
 
 	protected static void logExecution(ExecutionEntity execution) {
 		LOG.info(">>>>>[{}] {} ", execution.getId(), execution.getActivity().getId());
-		LOG.info("\t\tvariables [{}]: {}", execution.getId(), execution.getVariables());
+		LOG.info("         variables [{}]: {}", execution.getId(), execution.getVariables());
 	}
 
 	protected static void logExecution(ExecutionEntity execution, String processDefinitionId) {
 		LOG.info(">>>>>[{}] {} " + processDefinitionId, execution.getId(), execution.getActivity().getId());
-		LOG.info("\t\tvariables [{}]: {}", execution.getId(), execution.getVariables());
+		LOG.info("         variables [{}]: {}", execution.getId(), execution.getVariables());
 	}
 
 }

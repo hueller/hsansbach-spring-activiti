@@ -1,11 +1,8 @@
-package de.hsansbach.wif.ebusiness.engine.logging;
+package de.hsansbach.wif.ebusiness.engine.logging.listener;
 
 import org.activiti.engine.impl.persistence.entity.ExecutionEntity;
 import org.activiti.engine.impl.pvm.process.TransitionImpl;
 
-/** 
- * Small packaging class that holds all used logging listeners. 
- */
 public class LoggingListeners {
 
 	public final LoggingExecutionListener executionListener;
@@ -20,14 +17,18 @@ public class LoggingListeners {
 		startEndEventExecutionListener = new LoggingStartEndEventExecutionListener();
 	}
 
-	public class LoggingExecutionListener extends AbstractLoggingExecutionListener {
+	public class LoggingExecutionListener extends AbstractLoggingListener {
+		private static final long serialVersionUID = 1L;
+
 		@Override
 		protected void notifyExecution(ExecutionEntity execution) {
 			logExecution(execution);
 		}
 	}
 
-	public class LoggingStartEndEventExecutionListener extends AbstractLoggingExecutionListener {
+	public class LoggingStartEndEventExecutionListener extends AbstractLoggingListener {
+		private static final long serialVersionUID = 1L;
+
 		@Override
 		protected void notifyExecution(ExecutionEntity execution) {
 			String processDefinitionId = execution.getProcessDefinitionId();
@@ -35,7 +36,9 @@ public class LoggingListeners {
 		}
 	}
 
-	public class LoggingTransitionListener extends AbstractLoggingExecutionListener {
+	public class LoggingTransitionListener extends AbstractLoggingListener {
+		private static final long serialVersionUID = 1L;
+
 		@Override
 		protected void notifyExecution(ExecutionEntity execution) {
 			TransitionImpl transitionTaken = execution.getTransition();
@@ -47,7 +50,9 @@ public class LoggingListeners {
 		}
 	}
 
-	class LoggingUserTaskExecutionListener extends AbstractLoggingExecutionListener {
+	public class LoggingUserTaskExecutionListener extends AbstractLoggingListener {
+		private static final long serialVersionUID = 1L;
+
 		@Override
 		protected void notifyExecution(ExecutionEntity execution) {
 			logExecution(execution, "(user task)");
