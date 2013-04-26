@@ -8,7 +8,6 @@ Arbeitsprojekt für die HS Ansbach Veranstaltung
    - Maven 3 (http://maven.apache.org/)
    - Spring Toolsuite 3.1.0.RELEASE - based on Eclipse Juno 3.8.1 (http://www.springsource.org/downloads/sts-ggts)
    - Activiti Plugin für Eclipse installieren (Update Site: http://activiti.org/designer/update/)
-   - MySQL Community Server 5.x (http://dev.mysql.com/downloads/mysql/)
    
 2) Kontrolle Entwicklungumgebung per Kommandozeile
    - java -version
