@@ -13,10 +13,10 @@
     <name>spring-activiti-domain</name>
 
     <dependencies>
-    	<dependency>
+        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
         </dependency>
     </dependencies>
-    
+
 </project>
