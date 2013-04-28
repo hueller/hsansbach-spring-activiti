@@ -45,7 +45,12 @@ public class ActivitiProcessServiceImpl implements ActivitiProcessService {
 
 	@Override
 	public void completeTask(String taskId) {
-		taskService.complete(taskId);
+		completeTask(taskId, null);
+	}
+
+	@Override
+	public void completeTask(String taskId, Map<String, Object> variables) {
+		taskService.complete(taskId, variables);
 	}
 
 }
