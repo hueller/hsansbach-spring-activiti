@@ -21,11 +21,13 @@
 			org.springframework.web.context.request.RequestContextListener
 		</listener-class>
 	</listener>
+    
+    <!-- Activate when using Spring profiles
 	<context-param>
 		<param-name>spring.profiles.active</param-name>
-		<param-value>standalone</param-value>
-		<!-- <param-value>integration</param-value> -->
+		<param-value>integration</param-value>
 	</context-param>
+    -->
 
 	<!-- JSF mapping -->
 	<servlet>
