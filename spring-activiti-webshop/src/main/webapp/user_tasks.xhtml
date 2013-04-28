@@ -11,7 +11,7 @@
 		<ui:define name="content">
 
 			<h:form>
-				<h:dataTable value="#{userTaskService.getTasksForAssigne('maxmustermann')}" var="task">
+				<h:dataTable value="#{activitiProcessService.getTasksForAssigne('maxmustermann')}" var="task">
 					<h:column>
 						<f:facet name="header">Process Instance Id</f:facet>
 						#{task.processInstanceId}
@@ -22,7 +22,7 @@
 					</h:column>
 					<h:column>
 						<f:facet name="header">Action</f:facet>
-						<h:commandButton value="Complete" action="#{userTaskService.completeTask(task.id)}" />
+						<h:commandButton value="Complete" action="#{activitiProcessService.completeTask(task.id)}" />
 					</h:column>
 				</h:dataTable>
 				<br />

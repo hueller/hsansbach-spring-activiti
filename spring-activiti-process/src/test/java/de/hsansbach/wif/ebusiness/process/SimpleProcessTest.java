@@ -13,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import de.hsansbach.wif.ebusiness.process.service.ProcessRuntimeService;
+import de.hsansbach.wif.ebusiness.process.service.ActivitiProcessService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:process-context.xml")
@@ -28,7 +28,7 @@ public class SimpleProcessTest {
     private RepositoryService repositoryService;
     
     @Autowired
-    private ProcessRuntimeService processRuntimeService;
+    private ActivitiProcessService processRuntimeService;
 
     @Before
     public void printSomeDebugInformation() {
@@ -40,7 +40,7 @@ public class SimpleProcessTest {
 
     @Test
     public void testProcess() {
-        processRuntimeService.startSimpleTestProcess();
+        processRuntimeService.startProcess(ProcessKey.SIMPLE_TEST);
         
         Assert.assertEquals(0, runtimeService.createProcessInstanceQuery().count());
     }
