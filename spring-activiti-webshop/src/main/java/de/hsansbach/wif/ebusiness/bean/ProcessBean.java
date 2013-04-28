@@ -3,7 +3,6 @@ package de.hsansbach.wif.ebusiness.bean;
 import javax.faces.bean.RequestScoped;
 import javax.inject.Named;
 
-import org.activiti.engine.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import de.hsansbach.wif.ebusiness.bean.NavigationBean.NavigationKey;
@@ -20,9 +19,6 @@ public class ProcessBean {
 
 	@Autowired
 	private ProcessRuntimeService processRuntimeService;
-	
-	@Autowired
-	private TaskService taskService;
 	
 	public String startSimpleTestProcess() {
 		this.processInstanceId = processRuntimeService.startSimpleTestProcess();
