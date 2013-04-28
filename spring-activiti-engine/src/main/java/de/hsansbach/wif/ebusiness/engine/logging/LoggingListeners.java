@@ -1,4 +1,4 @@
-package de.hsansbach.wif.ebusiness.engine.logging.listener;
+package de.hsansbach.wif.ebusiness.engine.logging;
 
 import org.activiti.engine.impl.persistence.entity.ExecutionEntity;
 import org.activiti.engine.impl.pvm.process.TransitionImpl;
