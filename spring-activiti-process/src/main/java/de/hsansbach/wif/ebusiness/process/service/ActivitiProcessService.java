@@ -16,6 +16,8 @@ public interface ActivitiProcessService {
 	String startProcess(String key, Map<String, Object> variables);
 
 	List<Task> getTasksForAssigne(String assigne);
+	
+	Task getTaskForAssigneAndProcessInstanceId(String processInstanceId, String assigne);
 
 	void completeTask(String taskId);
 	

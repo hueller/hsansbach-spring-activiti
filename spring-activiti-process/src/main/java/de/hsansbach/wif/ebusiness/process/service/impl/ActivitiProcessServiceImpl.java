@@ -42,6 +42,11 @@ public class ActivitiProcessServiceImpl implements ActivitiProcessService {
 	public List<Task> getTasksForAssigne(String assigne) {
 		return taskService.createTaskQuery().taskAssignee(assigne).list();
 	}
+	
+	@Override
+	public Task getTaskForAssigneAndProcessInstanceId(String processInstanceId, String assigne) {
+		return taskService.createTaskQuery().taskAssignee(assigne).processInstanceId(processInstanceId).singleResult();
+	}
 
 	@Override
 	public void completeTask(String taskId) {
