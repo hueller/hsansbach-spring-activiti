@@ -1,6 +1,7 @@
 package de.hsansbach.wif.ebusiness.process.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
@@ -23,12 +24,17 @@ public class ActivitiProcessServiceImpl implements ActivitiProcessService {
     
     @Override
 	public String startProcess(ProcessKey key) {
-		return startProcess(key.name());
+		return startProcess(key, null);
+	}
+    
+    @Override
+	public String startProcess(ProcessKey key, Map<String, Object> variables) {
+    	return startProcess(key.name(), variables);
 	}
 
     @Override
-    public String startProcess(String key) {
-        ProcessInstance processInstance = runtimeService.startProcessInstanceByKey(key);
+    public String startProcess(String key, Map<String, Object> variables) {
+        ProcessInstance processInstance = runtimeService.startProcessInstanceByKey(key, variables);
         return processInstance.getId();
     }
 	
