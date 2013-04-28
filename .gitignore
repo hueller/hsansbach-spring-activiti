@@ -4,5 +4,8 @@
 *.jar
 *.war
 *.ear
+
+# Eclipse #
 /.settings
 /.project
+/.faces-config.pageflow
