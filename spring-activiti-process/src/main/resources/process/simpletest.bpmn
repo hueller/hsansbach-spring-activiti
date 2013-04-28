@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/test">
+  <process id="SIMPLE_TEST" name="Simple Test Process" isExecutable="true">
+    <startEvent id="start" name="Start"></startEvent>
+    <endEvent id="end" name="End"></endEvent>
+    <serviceTask id="dummyTask" name="Dummy Task" activiti:expression="#{@dummyFacade.getRandomNumber(100)}" activiti:resultVariableName="RANDOM_NUMBER"></serviceTask>
+    <sequenceFlow id="startOk" sourceRef="start" targetRef="dummyTask"></sequenceFlow>
+    <sequenceFlow id="dummyTaskOk" sourceRef="dummyTask" targetRef="end"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_SIMPLE_TEST">
+    <bpmndi:BPMNPlane bpmnElement="SIMPLE_TEST" id="BPMNPlane_SIMPLE_TEST">
+      <bpmndi:BPMNShape bpmnElement="start" id="BPMNShape_start">
+        <omgdc:Bounds height="35.0" width="35.0" x="30.0" y="150.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="end" id="BPMNShape_end">
+        <omgdc:Bounds height="35.0" width="35.0" x="280.0" y="150.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="validatePurchase" id="BPMNShape_validatePurchase">
+        <omgdc:Bounds height="55.0" width="105.0" x="100.0" y="140.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="dummyTask" id="BPMNShape_dummyTask">
+        <omgdc:Bounds height="55.0" width="105.0" x="120.0" y="140.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="startOk" id="BPMNEdge_startOk">
+        <omgdi:waypoint x="65.0" y="167.0"></omgdi:waypoint>
+        <omgdi:waypoint x="120.0" y="167.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
+        <omgdi:waypoint x="205.0" y="167.0"></omgdi:waypoint>
+        <omgdi:waypoint x="240.0" y="167.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="dummyTaskOk" id="BPMNEdge_dummyTaskOk">
+        <omgdi:waypoint x="225.0" y="167.0"></omgdi:waypoint>
+        <omgdi:waypoint x="280.0" y="167.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

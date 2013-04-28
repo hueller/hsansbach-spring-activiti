@@ -2,8 +2,8 @@ package de.hsansbach.wif.ebusiness.process;
 
 public enum ProcessKey {
 	
-	PURCHASE,
+	SIMPLE_TEST,
 	
-	USERCONFIRMATION;
+	USER_CONFIRMATION_TEST;
 
 }

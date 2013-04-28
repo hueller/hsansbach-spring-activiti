@@ -12,13 +12,13 @@
 		
 			<h:form>
 				<h3>Purchase</h3>
-				<h:commandButton value="Test Purchase process" action="#{processBean.startPurchaseProcess()}" />
+				<h:commandButton value="Start 'Simple Test' process" action="#{processBean.startSimpleTestProcess()}" />
 				<br />
 				<br />
 				<h3>User Confirmation</h3>
-				<h:commandButton value="Test User Confirmation processes" action="#{processBean.startUserConfirmationProcess()}" />
+				<h:commandButton value="Start 'User Confirmation Test' processes" action="#{processBean.startUserConfirmationTestProcess()}" />
 				<br />
-				<h:commandButton value="Open User Confirmation tasks" action="#{navigationBean.get('USER_TASKS')}" />
+				<h:commandButton value="Show user confirmation tasks" action="#{navigationBean.navigateTo('USER_TASKS')}" />
 			</h:form>
 		
 		</ui:define>

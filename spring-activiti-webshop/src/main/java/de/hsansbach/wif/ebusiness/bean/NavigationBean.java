@@ -5,15 +5,16 @@ import javax.inject.Named;
 @Named
 public class NavigationBean {
 	
-	public String get(NavigationKey key) {
-		return key.name().toLowerCase();
-	}
-	
-	public String get(String key) {
+	public String navigateTo(String key) {
 		return NavigationKey.valueOf(key).name().toLowerCase();
 	}
 	
+	public String navigateTo(NavigationKey key) {
+		return key.name().toLowerCase();
+	}
+	
 	enum NavigationKey {
+		INDEX,
 		PROCESS_RESULT,
 		USER_TASKS
 	}

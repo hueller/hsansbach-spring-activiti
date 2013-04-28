@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/test">
+  <process id="USER_CONFIRMATION_TEST" name="User Confirmation Test Process" isExecutable="true">
+    <startEvent id="start" name="Start"></startEvent>
+    <userTask id="confirmationUserTask" name="Confirmation User Task" activiti:assignee="maxmustermann"></userTask>
+    <endEvent id="end" name="End"></endEvent>
+    <sequenceFlow id="startOk" sourceRef="start" targetRef="confirmationUserTask"></sequenceFlow>
+    <sequenceFlow id="confirmationUserTaskOk" sourceRef="confirmationUserTask" targetRef="end"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_USER_CONFIRMATION_TEST">
+    <bpmndi:BPMNPlane bpmnElement="USER_CONFIRMATION_TEST" id="BPMNPlane_USER_CONFIRMATION_TEST">
+      <bpmndi:BPMNShape bpmnElement="start" id="BPMNShape_start">
+        <omgdc:Bounds height="35.0" width="35.0" x="20.0" y="150.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="end" id="BPMNShape_end">
+        <omgdc:Bounds height="35.0" width="35.0" x="280.0" y="150.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="confirmationUserTask" id="BPMNShape_confirmationUserTask">
+        <omgdc:Bounds height="55.0" width="105.0" x="120.0" y="140.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="startOk" id="BPMNEdge_startOk">
+        <omgdi:waypoint x="55.0" y="167.0"></omgdi:waypoint>
+        <omgdi:waypoint x="120.0" y="167.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="confirmationUserTaskOk" id="BPMNEdge_confirmationUserTaskOk">
+        <omgdi:waypoint x="225.0" y="167.0"></omgdi:waypoint>
+        <omgdi:waypoint x="280.0" y="167.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

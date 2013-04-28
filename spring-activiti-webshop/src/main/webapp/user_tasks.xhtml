@@ -11,7 +11,7 @@
 		<ui:define name="content">
 
 			<h:form>
-				<h:dataTable value="#{userTaskService.getTasksForAssigne('matthias')}" var="task">
+				<h:dataTable value="#{userTaskService.getTasksForAssigne('maxmustermann')}" var="task">
 					<h:column>
 						<f:facet name="header">Process Instance Id</f:facet>
 						#{task.processInstanceId}
@@ -25,6 +25,9 @@
 						<h:commandButton value="Complete" action="#{userTaskService.completeTask(task.id)}" />
 					</h:column>
 				</h:dataTable>
+				<br />
+				<br />
+				<h:commandButton value="Back" action="#{navigationBean.navigateTo('INDEX')}" />
 			</h:form>
 
 		</ui:define>

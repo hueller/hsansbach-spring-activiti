@@ -24,14 +24,14 @@ public class ProcessBean {
 	@Autowired
 	private TaskService taskService;
 	
-	public String startPurchaseProcess() {
-		this.processInstanceId = processRuntimeService.startPurchaseProcess(1L, 1L);
-		return navigationBean.get(NavigationKey.PROCESS_RESULT);
+	public String startSimpleTestProcess() {
+		this.processInstanceId = processRuntimeService.startSimpleTestProcess();
+		return navigationBean.navigateTo(NavigationKey.PROCESS_RESULT);
 	}
 	
-	public String startUserConfirmationProcess() {
-		this.processInstanceId = processRuntimeService.startUserConfirmationProcess();
-		return navigationBean.get(NavigationKey.PROCESS_RESULT);
+	public String startUserConfirmationTestProcess() {
+		this.processInstanceId = processRuntimeService.startUserConfirmationTestProcess();
+		return navigationBean.navigateTo(NavigationKey.PROCESS_RESULT);
 	}
 
 	public String getProcessInstanceId() {
