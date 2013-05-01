@@ -47,6 +47,21 @@ public class ActivitiProcessServiceImpl implements ActivitiProcessService {
 	public Task getTaskForAssigneAndProcessInstanceId(String processInstanceId, String assigne) {
 		return taskService.createTaskQuery().taskAssignee(assigne).processInstanceId(processInstanceId).singleResult();
 	}
+	
+	@Override
+	public Map<String, Object> getVariablesForProcessInstanceId(String processInstanceId) {
+		return runtimeService.getVariables(processInstanceId);
+	}
+
+	@Override
+	public Object getVariableForProcessInstanceIdAndVariableKey(String processInstanceId, String variableKey) {
+		return runtimeService.getVariable(processInstanceId, variableKey);
+	}
+	
+	@Override
+	public void setVariableToProcessInstance(String processInstanceId, String variableKey, Object variableValue) {
+		runtimeService.setVariable(processInstanceId, variableKey, variableValue);
+	}
 
 	@Override
 	public void completeTask(String taskId) {
