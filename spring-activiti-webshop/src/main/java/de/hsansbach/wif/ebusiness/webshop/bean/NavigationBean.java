@@ -13,7 +13,7 @@ public class NavigationBean {
 		return key.name().toLowerCase();
 	}
 
-	enum NavigationKey {
+	public enum NavigationKey {
 		LOGIN, MAIN, PROCESS_RESULT, USER_TASKS
 	}
 
