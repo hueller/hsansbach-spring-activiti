@@ -13,7 +13,7 @@
 		<h:form>
 			<small>
 				<h:panelGroup style="float:right" rendered="#{not empty userBean.username}">
-					Angemeldet als: <h:outputText value="#{userBean.username}" /> - 
+					Angemeldet als <h:outputText value="#{userBean.username}" /> - 
 					<strong><h:commandLink action="#{userBean.logout}" value="Logout" /></strong>
 				</h:panelGroup>
 				eBusiness Anwendungsentwicklung SS 2013
