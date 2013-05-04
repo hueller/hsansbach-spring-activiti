@@ -11,14 +11,14 @@
 		<ui:define name="content">
 		
 			<h:form>
-				<h3>Purchase</h3>
-				<h:commandButton value="Start 'Simple Test' process" action="#{processBean.startSimpleTestProcess()}" />
+				<h3>Simple Test</h3>
+				<h:commandButton value="Starte Prozess 'Simple Test'" action="#{processBean.startSimpleTestProcess()}" />
 				<br />
 				<br />
-				<h3>User Confirmation</h3>
-				<h:commandButton value="Start 'User Confirmation Test' processes" action="#{processBean.startUserConfirmationTestProcess()}" />
+				<h3>User Confirmation Test</h3>
+				<h:commandButton value="Starte Prozess 'User Confirmation Test'" action="#{processBean.startUserConfirmationTestProcess()}" />
 				<br />
-				<h:commandButton value="Show user confirmation tasks" action="#{navigationBean.navigateTo('USER_TASKS')}" />
+				<h:commandButton value="Zeige offene Benutzertasks in Prozess 'User Confirmation Test'" action="#{navigationBean.navigateTo('USER_TASKS')}" />
 			</h:form>
 		
 		</ui:define>
