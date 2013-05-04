@@ -1,7 +1,15 @@
 package de.hsansbach.wif.ebusiness.domain;
 
-public interface DummyFacade {
+import java.util.Random;
 
-    Integer getRandomNumber(Integer range);
+import org.springframework.stereotype.Service;
+
+@Service(value = "dummyFacade")
+public class DummyFacade {
+
+	public Integer getRandomNumber(Integer range) {
+		Random random = new Random();
+		return random.nextInt(range) + 1;
+	}
 
 }
