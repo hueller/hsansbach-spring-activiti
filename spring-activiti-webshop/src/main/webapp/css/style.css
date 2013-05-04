@@ -5,3 +5,8 @@ body {
 h2 {
 	color: darkblue;
 }
+
+.error {
+	color: red;
+	margin-left: 5px;
+}

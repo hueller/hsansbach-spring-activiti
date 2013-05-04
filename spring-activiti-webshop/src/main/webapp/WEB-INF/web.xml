@@ -7,7 +7,7 @@
 	
 	<!-- Welcome page -->
 	<welcome-file-list>
-		<welcome-file>index.xhtml</welcome-file>
+		<welcome-file>login.xhtml</welcome-file>
 	</welcome-file-list>
 
 	<!-- Spring support -->
@@ -22,13 +22,6 @@
 		</listener-class>
 	</listener>
     
-    <!-- Activate when using Spring profiles
-	<context-param>
-		<param-name>spring.profiles.active</param-name>
-		<param-value>integration</param-value>
-	</context-param>
-    -->
-
 	<!-- JSF mapping -->
 	<servlet>
 		<servlet-name>facesServlet</servlet-name>

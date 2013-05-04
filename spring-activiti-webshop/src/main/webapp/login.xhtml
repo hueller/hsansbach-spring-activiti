@@ -11,12 +11,15 @@
 		<ui:define name="content">
 		
 			<h:form>
-				Ihr Auftrag wird unter der Vorgangsnummer <strong>#{processBean.processInstanceId}</strong> bearbeitet.
+				<h3>Login</h3>
+				User: 
+				<h:inputText id="username" value="#{userBean.username}" required="true" requiredMessage="Bitte geben Sie einen Benutzernamen ein." />
+				<h:message class="error" for="username" />
 				<br />
 				<br />
-				<h:commandButton value="Back" action="#{navigationBean.navigateTo('MAIN')}" />
+				<h:commandButton value="Login" action="#{userBean.login}" />
 			</h:form>
-			
+		
 		</ui:define>
 	</ui:composition>
 </h:body>
