@@ -4,7 +4,7 @@ import java.util.Random;
 
 import org.springframework.stereotype.Service;
 
-@Service(value = "dummyFacade")
+@Service
 public class DummyFacade {
 
 	public Integer getRandomNumber(Integer range) {

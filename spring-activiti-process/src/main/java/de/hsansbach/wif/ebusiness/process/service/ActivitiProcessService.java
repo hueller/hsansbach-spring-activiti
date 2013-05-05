@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 
 import de.hsansbach.wif.ebusiness.process.ProcessKey;
 
-@Service(value = "activitiProcessService")
+@Service
 public class ActivitiProcessService {
     
     @Autowired
