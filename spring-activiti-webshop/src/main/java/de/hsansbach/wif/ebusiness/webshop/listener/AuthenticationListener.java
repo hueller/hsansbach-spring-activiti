@@ -31,9 +31,8 @@ public class AuthenticationListener implements PhaseListener {
 		FacesContext facesContext = phaseEvent.getFacesContext();
 		if (!isRootDirectory(facesContext) && !isUserLoggedIn(facesContext)) {
 			// User tries to access a protected directory but is not logged in, so redirect to login page.
-			String loginPage = formatOutcome(NavigationKey.LOGIN);
-			LOG.warn("User is not allowed to view page. Redirecting to '{}'.", loginPage);
-			facesContext.getApplication().getNavigationHandler().handleNavigation(facesContext, null, loginPage);
+			LOG.warn("User is not allowed to view page. Redirecting to '{}'.", NavigationKey.LOGIN.getFileName());
+			facesContext.getApplication().getNavigationHandler().handleNavigation(facesContext, null, NavigationKey.LOGIN.getFileName());
 		}
 	}
 
@@ -46,8 +45,4 @@ public class AuthenticationListener implements PhaseListener {
 		return userBean != null && userBean.getUsername() != null && userBean.getUsername().length() > 0;
 	}
 	
-	private String formatOutcome(NavigationKey navigationKey) {
-		return navigationKey.getFileName();
-	}
-
 }
