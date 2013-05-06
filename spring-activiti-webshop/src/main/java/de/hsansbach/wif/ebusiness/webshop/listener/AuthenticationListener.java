@@ -29,21 +29,16 @@ public class AuthenticationListener implements PhaseListener {
 	@Override
 	public void afterPhase(PhaseEvent phaseEvent) {
 		FacesContext facesContext = phaseEvent.getFacesContext();
-		if (!isLoginView(facesContext) && !isUserLoggedIn(facesContext)) {
-			// User is not logged in, so redirect to login page.
+		if (!isRootDirectory(facesContext) && !isUserLoggedIn(facesContext)) {
+			// User tries to access a protected directory but is not logged in, so redirect to login page.
 			String loginPage = formatOutcome(NavigationKey.LOGIN);
 			LOG.warn("User is not allowed to view page. Redirecting to '{}'.", loginPage);
 			facesContext.getApplication().getNavigationHandler().handleNavigation(facesContext, null, loginPage);
-		} else if (isLoginView(facesContext) && isUserLoggedIn(facesContext)) {
-			// User is already logged in, so redirect to main page.
-			String mainPage = formatOutcome(NavigationKey.MAIN);
-			LOG.info("User is already logged in. Redirecting to '{}'.", mainPage);
-			facesContext.getApplication().getNavigationHandler().handleNavigation(facesContext, null, mainPage);
 		}
 	}
 
-	private boolean isLoginView(FacesContext facesContext) {
-		return facesContext.getViewRoot().getViewId().lastIndexOf(NavigationKey.LOGIN.name().toLowerCase()) > -1 ? true : false;
+	private boolean isRootDirectory(FacesContext facesContext) {
+		return facesContext.getViewRoot().getViewId().split("/").length > 2 ? false : true;
 	}
 
 	private boolean isUserLoggedIn(FacesContext facesContext) {
@@ -52,7 +47,7 @@ public class AuthenticationListener implements PhaseListener {
 	}
 	
 	private String formatOutcome(NavigationKey navigationKey) {
-		return "/" + navigationKey.name().toLowerCase() + ".xhtml";
+		return navigationKey.getFileName();
 	}
 
 }

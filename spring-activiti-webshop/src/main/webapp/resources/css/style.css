@@ -1,0 +1,12 @@
+body {
+	font-family: sans-serif;
+}
+
+h2 {
+	color: darkblue;
+}
+
+.error {
+	color: red;
+	margin-left: 5px;
+}
