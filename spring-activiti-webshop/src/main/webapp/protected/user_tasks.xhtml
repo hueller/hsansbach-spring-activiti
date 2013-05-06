@@ -14,11 +14,11 @@
 				<h:dataTable value="#{activitiProcessService.getTasksForAssigne(userBean.username)}" var="task">
 					<h:column>
 						<f:facet name="header">Process Instance Id</f:facet>
-						#{task.processInstanceId}
+						<h:outputText value="#{task.processInstanceId}" />
 					</h:column>
 					<h:column>
 						<f:facet name="header">Task Name</f:facet>
-						#{task.name}
+						<h:outputText value="#{task.name}" />
 					</h:column>
 					<h:column>
 						<f:facet name="header">Action</f:facet>

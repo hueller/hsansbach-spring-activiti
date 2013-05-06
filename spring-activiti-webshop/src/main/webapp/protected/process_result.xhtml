@@ -11,7 +11,7 @@
 		<ui:define name="content">
 		
 			<h:form>
-				Ihr Auftrag wird unter der Vorgangsnummer <strong>#{processBean.processInstanceId}</strong> bearbeitet.
+				Ihr Auftrag wird unter der Vorgangsnummer <strong><h:outputText value="#{processBean.processInstanceId}" /></strong> bearbeitet.
 				<br />
 				<br />
 				<h:commandButton value="Zurück" action="#{navigationBean.navigateTo('MAIN')}" />
