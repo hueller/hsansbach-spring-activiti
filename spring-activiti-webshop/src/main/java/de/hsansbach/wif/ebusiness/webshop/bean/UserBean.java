@@ -1,5 +1,8 @@
 package de.hsansbach.wif.ebusiness.webshop.bean;
 
+
+import java.io.Serializable;
+
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -10,7 +13,9 @@ import de.hsansbach.wif.ebusiness.webshop.NavigationHelper.NavigationKey;
 
 @Named
 @Scope("session")
-public class UserBean {
+public class UserBean implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	@Inject
 	private NavigationHelper navigationHelper;
@@ -18,7 +23,10 @@ public class UserBean {
 	private String username;
 
 	public String login() {
-		return navigationHelper.navigateTo(NavigationKey.MAIN);
+		if ("Sachbearbeiter".equals(username)) {
+			return navigationHelper.navigateTo(NavigationKey.EMPLOYEE_LIST_FORM);
+		}
+		return navigationHelper.navigateTo(NavigationKey.CUSTOMER_LIST_FORM);
 	}
 
 	public String logout() {
