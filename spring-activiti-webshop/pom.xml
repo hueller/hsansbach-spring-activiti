@@ -9,8 +9,8 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>de.hsansbach.wif.ebusines</groupId>
     <artifactId>spring-activiti-webshop</artifactId>
+    <name>spring-activiti-webshop</name>
     <packaging>war</packaging>
 
     <dependencies>
