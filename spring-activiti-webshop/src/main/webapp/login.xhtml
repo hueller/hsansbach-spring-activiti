@@ -13,7 +13,7 @@
 			<h:form>
 				<h3>Login</h3>
 				Benutzername: 
-				<h:inputText id="username" value="#{userBean.username}" required="true" requiredMessage="Bitte geben Sie einen Benutzernamen ein." />
+				<h:inputText id="username" value="#{userBean.username}" required="true" requiredMessage="Bitte geben Sie einen Benutzernamen ein." maxlength="30" size="20" />
 				<h:message class="error" for="username" />
 				<br />
 				<br />
