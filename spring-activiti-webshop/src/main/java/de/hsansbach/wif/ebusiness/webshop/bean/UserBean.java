@@ -23,10 +23,7 @@ public class UserBean implements Serializable {
 	private String username;
 
 	public String login() {
-		if ("Sachbearbeiter".equals(username)) {
-			return navigationHelper.navigateTo(NavigationKey.EMPLOYEE_LIST_FORM);
-		}
-		return navigationHelper.navigateTo(NavigationKey.CUSTOMER_LIST_FORM);
+		return navigationHelper.navigateTo(NavigationKey.MAIN);
 	}
 
 	public String logout() {
