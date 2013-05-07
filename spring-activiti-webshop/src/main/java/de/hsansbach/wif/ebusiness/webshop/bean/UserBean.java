@@ -1,6 +1,5 @@
 package de.hsansbach.wif.ebusiness.webshop.bean;
 
-
 import java.io.Serializable;
 
 import javax.inject.Inject;
