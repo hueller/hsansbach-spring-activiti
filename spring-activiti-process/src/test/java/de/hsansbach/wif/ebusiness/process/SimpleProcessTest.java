@@ -1,5 +1,7 @@
 package de.hsansbach.wif.ebusiness.process;
 
+import javax.inject.Inject;
+
 import org.activiti.engine.RepositoryService;
 import org.activiti.engine.RuntimeService;
 import org.activiti.engine.repository.ProcessDefinition;
@@ -9,7 +11,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -21,13 +22,13 @@ public class SimpleProcessTest {
     
     private static final Log LOG = LogFactory.getLog(SimpleProcessTest.class);
 
-    @Autowired
+    @Inject
     private RuntimeService runtimeService;
 
-    @Autowired
+    @Inject
     private RepositoryService repositoryService;
     
-    @Autowired
+    @Inject
     private ActivitiProcessService processRuntimeService;
 
     @Before

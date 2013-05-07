@@ -3,27 +3,28 @@ package de.hsansbach.wif.ebusiness.process.service;
 import java.util.List;
 import java.util.Map;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+
 import org.activiti.engine.HistoryService;
 import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
 import org.activiti.engine.history.HistoricVariableInstance;
 import org.activiti.engine.runtime.ProcessInstance;
 import org.activiti.engine.task.Task;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import de.hsansbach.wif.ebusiness.process.ProcessKey;
 
-@Service
+@Named
 public class ActivitiProcessService {
     
-    @Autowired
+    @Inject
     private RuntimeService runtimeService;
     
-    @Autowired
+    @Inject
 	private TaskService taskService;
     
-    @Autowired
+    @Inject
     private HistoryService historyService;
     
 	public String startProcess(ProcessKey key) {

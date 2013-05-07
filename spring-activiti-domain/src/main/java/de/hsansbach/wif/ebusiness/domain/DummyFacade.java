@@ -2,9 +2,9 @@ package de.hsansbach.wif.ebusiness.domain;
 
 import java.util.Random;
 
-import org.springframework.stereotype.Service;
+import javax.inject.Named;
 
-@Service
+@Named
 public class DummyFacade {
 
 	public Integer getRandomNumber(Integer range) {

@@ -8,7 +8,7 @@ import javax.faces.event.PhaseListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.hsansbach.wif.ebusiness.webshop.bean.NavigationBean.NavigationKey;
+import de.hsansbach.wif.ebusiness.webshop.NavigationHelper.NavigationKey;
 import de.hsansbach.wif.ebusiness.webshop.bean.UserBean;
 
 public class AuthenticationListener implements PhaseListener {

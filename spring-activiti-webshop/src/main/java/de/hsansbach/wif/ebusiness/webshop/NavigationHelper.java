@@ -1,9 +1,9 @@
-package de.hsansbach.wif.ebusiness.webshop.bean;
+package de.hsansbach.wif.ebusiness.webshop;
 
 import javax.inject.Named;
 
 @Named
-public class NavigationBean {
+public class NavigationHelper {
 
 	public String navigateTo(String key) {
 		return NavigationKey.valueOf(key).getFileName();
@@ -24,8 +24,7 @@ public class NavigationBean {
 			this.fileName = fileName;
 		}
 		public String getFileName() {
-			// Navigation by redirect to display the correct page in the browser URL input field.
-			return fileName + "?faces-redirect=true";
+			return fileName;
 		}
 	}
 

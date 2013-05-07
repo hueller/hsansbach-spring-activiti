@@ -1,28 +1,29 @@
 package de.hsansbach.wif.ebusiness.webshop.bean;
 
-import javax.faces.bean.SessionScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 
-import de.hsansbach.wif.ebusiness.webshop.bean.NavigationBean.NavigationKey;
+import de.hsansbach.wif.ebusiness.webshop.NavigationHelper;
+import de.hsansbach.wif.ebusiness.webshop.NavigationHelper.NavigationKey;
 
 @Named
-@SessionScoped
+@Scope("session")
 public class UserBean {
 
-	@Autowired
-	private NavigationBean navigationBean;
+	@Inject
+	private NavigationHelper navigationHelper;
 
 	private String username;
 
 	public String login() {
-		return navigationBean.navigateTo(NavigationKey.MAIN);
+		return navigationHelper.navigateTo(NavigationKey.MAIN);
 	}
 
 	public String logout() {
 		this.username = "";
-		return navigationBean.navigateTo(NavigationKey.LOGIN);
+		return navigationHelper.navigateTo(NavigationKey.LOGIN);
 	}
 
 	public String getUsername() {
