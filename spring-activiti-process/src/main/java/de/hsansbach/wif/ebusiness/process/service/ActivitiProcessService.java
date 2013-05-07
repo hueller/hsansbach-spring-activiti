@@ -3,8 +3,10 @@ package de.hsansbach.wif.ebusiness.process.service;
 import java.util.List;
 import java.util.Map;
 
+import org.activiti.engine.HistoryService;
 import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
+import org.activiti.engine.history.HistoricVariableInstance;
 import org.activiti.engine.runtime.ProcessInstance;
 import org.activiti.engine.task.Task;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,9 @@ public class ActivitiProcessService {
     
     @Autowired
 	private TaskService taskService;
+    
+    @Autowired
+    private HistoryService historyService;
     
 	public String startProcess(ProcessKey key) {
 		return startProcess(key, null);
@@ -38,8 +43,8 @@ public class ActivitiProcessService {
 		return taskService.createTaskQuery().taskAssignee(assigne).list();
 	}
 	
-	public Task getTaskForAssigneAndProcessInstanceId(String processInstanceId, String assigne) {
-		return taskService.createTaskQuery().taskAssignee(assigne).processInstanceId(processInstanceId).singleResult();
+	public Task getActiveTaskForProcessInstanceId(String processInstanceId) {
+		return taskService.createTaskQuery().processInstanceId(processInstanceId).active().singleResult();
 	}
 	
 	public Map<String, Object> getVariablesForProcessInstanceId(String processInstanceId) {
@@ -52,6 +57,16 @@ public class ActivitiProcessService {
 	
 	public void setVariableToProcessInstance(String processInstanceId, String variableKey, Object variableValue) {
 		runtimeService.setVariable(processInstanceId, variableKey, variableValue);
+	}
+	
+	public Object getVariableForHistoricProcessInstanceIdAndVariableKey(String processInstanceId, String variableKey) {
+		List<HistoricVariableInstance> variables = historyService.createHistoricVariableInstanceQuery().processInstanceId(processInstanceId).list();
+		for (HistoricVariableInstance variable : variables) {
+			if (variableKey.equals(variable.getVariableName())) {
+				return variable.getValue();
+			}
+		}
+		return null;
 	}
 
 	public void completeTask(String taskId) {
