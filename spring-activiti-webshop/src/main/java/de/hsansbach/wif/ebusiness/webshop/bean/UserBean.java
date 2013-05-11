@@ -2,6 +2,7 @@ package de.hsansbach.wif.ebusiness.webshop.bean;
 
 import java.io.Serializable;
 
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -26,7 +27,7 @@ public class UserBean implements Serializable {
 	}
 
 	public String logout() {
-		this.username = "";
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
 		return navigationHelper.navigateTo(NavigationKey.LOGIN);
 	}
 
