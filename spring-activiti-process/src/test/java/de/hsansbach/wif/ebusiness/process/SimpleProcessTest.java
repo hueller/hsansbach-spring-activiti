@@ -3,6 +3,7 @@ package de.hsansbach.wif.ebusiness.process;
 import javax.inject.Inject;
 
 import org.activiti.engine.RuntimeService;
+import org.activiti.engine.test.Deployment;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,17 +14,18 @@ import de.hsansbach.wif.ebusiness.process.service.ActivitiProcessService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:process-context.xml")
+@Deployment(resources = "process/simpletest.bpmn")
 public class SimpleProcessTest {
 
 	@Inject
 	private RuntimeService runtimeService;
 
 	@Inject
-	private ActivitiProcessService processRuntimeService;
+	private ActivitiProcessService activitiProcessService;
 
 	@Test
 	public void testProcess() {
-		processRuntimeService.startProcess(ProcessKey.SIMPLE_TEST);
+		activitiProcessService.startProcess(ProcessKey.SIMPLE_TEST);
 
 		Assert.assertEquals(0, runtimeService.createProcessInstanceQuery().count());
 	}
