@@ -1,9 +1,13 @@
 package de.hsansbach.wif.ebusiness.webshop;
 
+import java.io.Serializable;
+
 import javax.inject.Named;
 
 @Named
-public class NavigationHelper {
+public class NavigationHelper implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	public String navigateTo(String key) {
 		return NavigationKey.valueOf(key).getFileName();
